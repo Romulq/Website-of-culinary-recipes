@@ -1,0 +1,43 @@
+{% extends "recept/logPage.html" %}
+{% load static %}
+
+
+{% block one %}
+    <div class="row logFone">
+        <div class="col-md-6 align-self-center">
+            <h1 class="text-center">
+                <img src="{% static 'image/logo.png' %}" alt="logo">
+                RecipeForAll
+            </h1>
+        </div>
+        <div class="row col-md-6 align-self-center justify-content-center">
+            <div class="row col-md-8 justify-content-center p-5 br-10 bg-light">
+                <h2 class="col-md-12 text-center text-dark mb-5">Вход</h2>
+                <div class="col">
+                    <form class="text-center" action="{% url 'sign_in' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group mb-4">
+                            <input name="username" class="form-control mb-3" placeholder="Логин">
+                            <input name="password" type="password" class="form-control mb-3" placeholder="Пароль">
+                        </div>
+                            <div class="col mb-2">
+                                <button type="submit" class="btn btn-success">Авторизоваться</button>
+                            </div>
+                            <div class="col mb-5">
+                                <a href="{% url 'sign_up' %}" class="text-dark">Регистрация</a>
+                            </div>
+                            <div class="col">
+                                <a href="{% url 'home' %}" class="text-secondary">На главную</a>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}
+
+
+{% block two %}
+{% endblock %}

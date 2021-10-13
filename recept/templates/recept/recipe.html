@@ -1,0 +1,143 @@
+{% extends "recept/index.html" %}
+{% load static %}
+
+
+{% block one %}
+
+    <div class="container offer recipe">
+        <div class="row offer recipe justify-content-center" style="background: 
+                                                                        linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),  
+                                                                        url(' {{ recipe.imageRecipe.url }}') no-repeat center center;
+                                                                    background-size: cover;
+                                                                    border-radius: 9px;
+                                                                    color: #fff; ">
+
+            <div class="row col-md-12 px-5 py-4">
+                <div class="col px-0 text-left">
+                    <p>{{ recipe.date|date:"d.m.Yг" }}</p>
+                </div>
+                <div class="col px-0 text-right">
+                    <p>{{ recipe.category }}</p>
+                </div>
+            </div>
+
+            <div class="col-md-12 text-center align-self-center">
+                <h2 class="recipe-title">{{ recipe.nameRecipe }}</h2>
+            </div>
+
+            <div class="col-md-12 px-5 py-4">
+                
+                <div class="row ml-auto col-md-2 justify-content-end">
+                    <img src="{% static 'image/timetocreate.png' %}" alt="create" height="24" width="24">
+                    <p class="mx-3">{{ recipe.timeofCreation }} ч</p>
+                </div>
+                <div class="row ml-auto col-md-2 justify-content-end">
+                    <img src="{% static 'image/portion.png' %}" alt="portions" height="24" width="24">
+                    <p class="mx-3">{{ recipe.count }} пор.</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block two %}
+
+    <div class="razdel-2">
+        <div class="container">
+            <h4 class="description">{{ recipe.description }}</h4>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block three %}
+
+    <div class="razdel bg-light">
+        <div class="container">
+            <h2 class="text-center mb-6">Что потребуется</h2>
+            <div class="row">
+                {% for ingredient in ingredients %}
+                    <div class="col-md-6">
+                        <div class="row justify-content-around">
+                            <h3 class="mb-4">{{ ingredient.nameIngredient }}</h3>
+                            <h4 class="mb-4">{{ ingredient.count }}</h4>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block four %}
+
+    <div class="razdel-2">
+        <div class="container">
+            <h2 class="text-center mb-6">Приступаем к готовке!</h2>
+            {% for stage in stages %}
+                <div class="col-md-12 stage my-5">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <img class="w-100" src="{{ stage.imageStage.url }}" alt="image stage" style="border-radius: 6px;" height="280   ">
+                        </div>
+                        <div class="col-md-7 text-center">
+                            <h3 class="mb-4">{{ stage.titleStage }}</h3>
+                            <p>{{ stage.discription|capfirst }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block five %}
+
+    <div class="razdel bg-light">
+        <div class="container">
+            <h2 class="text-center mb-6">Отзывы</h2>
+            {% if comments %}
+                {% for comment in comments %}
+                    <div class="col-md-12 my-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="mb-0 pl-3">{{ comment.user|capfirst }}</h4>
+                            </div>
+                            <div class="col-md-6 text-right pr-4">
+                                <p>{{ comment.time|date:"d.m.Yг" }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12 comment">
+                            <div class="">
+                                <p>{{ comment.text|capfirst }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-md-12">
+                    <h4>Отзывов пока что нет</h4>
+                </div>
+            {% endif %}
+
+            <h3 class="text-center mt-6 mb-4">Ваш отзыв к рецепту</h2>
+            {% if request.user.is_authenticated %}
+                <!-- сюда форму вставить нада -->
+                <p>будет форма</p>
+            {% else %}
+                <div class="text-center">
+                    <h4>Для того чтобы оставить отзыв, вы должны авторизоваться на сайте :)</h4>
+                    <a href="#" class="btn btn-primary my-3">Авторизоваться</a>      
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "recept/index.html" %}
+{% load static %}
+
+
+{% block one %}
+
+    <div class="container">
+        <div class="py-4 text-center">
+            {% if kitchen %}
+                <h2>{{ kitchen.nameKitchen }}</h2>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block two %}
+
+    <div class="razdel-2">
+        <div class="container">
+            <ul class="nav nav-tabs col-md-12 justify-content-center">
+                {% for category in categorys %}
+                    <li class="nav-item">
+                        <h3 class="nav-link my-0" data-toggle="tab" href="#{{ category.nameCategory }}">{{ category.nameCategory }}</h3>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="tab-content">
+                {% for category in categorys %}
+                    <div class="tab-pane fade" id="{{ category.nameCategory }}">
+                        <div class="row">
+                            {% for recipe in recipes %}
+                                {% if recipe.category.id == category.id %}
+                                    <div class="col-md-3 py-4">
+                                        <div class="card mb-4">
+                                            <img class="card-img-top" src="{{ recipe.imageRecipe.url }}" alt="{{ recipe.nameRecipe }}" height="190">
+                                            <div class="card-body text-center">
+                                                <div class="card-title">
+                                                    <h4>{{ recipe.nameRecipe }}</h4>
+                                                </div>
+                                                <a href="{% url 'recipe' recipe.id %}" class="btn btn-outline-primary">О рецепте</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block three %}
+{% endblock %}
+
+
+{% block four %}
+{% endblock %}

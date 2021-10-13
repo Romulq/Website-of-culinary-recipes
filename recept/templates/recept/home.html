@@ -1,0 +1,142 @@
+{% extends "recept/index.html" %}
+{% load static %}
+
+{% block one %}
+
+    <div class="container offer">
+        <div class="row offer">
+            <div class="col-md-6 offer-text align-self-center">
+                <h1 class="mb-0">Кулинарные рецепты</h1>
+                <h1 class="subtitle mb-0">на любой вкус и цвет</h1>
+                <div class="col-md-6 px-0 text-left">
+                    <a class="btn btn-warning button-text px-5 py-3 mt-3" href="{% url 'recipe' slug='all' %}">Список рецептов</a>
+                </div>
+            </div>
+            <div class="col-md-6 offer-image">
+                <img class="img-fluid rounded" src="{% static 'image/offer-image2.png' %}" alt="offer-image">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block two %}
+
+    <div class="razdel py-6 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-6">Подборки</h2>
+            <div class="row">
+                {% for kitchen in kitchens %}
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                        <img class="card-img-top" src="{{ kitchen.imageKitchen.url }}" alt="{{ kitchen.slugKitchen }}" height="261">
+                        <div class="card-body text-center">
+                            <div class="card-title">
+                            <h4>{{ kitchen.nameKitchen }}</h4>
+                            </div>
+                            <a href="{% url 'kitchen' kitchen.slugKitchen %}" class="btn btn-outline-primary">Посмотреть</a>
+                        </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block three %}
+
+    <div class="razdel-2">
+        <div class="row">
+            <div class="col-md-2 align-self-center but-left text-right">
+                <a class="mr-3" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <img src="{% static 'image/arrow-left.png' %}" alt="arrow-left">
+                </a>
+            </div>
+            <div class="col-md-8">
+                <h2 class="text-center mb-6">Рецепт дня - "{{ recipeOfDay.nameRecipe }}"</h2> 
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner">
+                        {% for stage in stages %}
+                            {% if stage.slugStage == 1 %}
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-md-5 px-5">
+                                            <img class="d-block w-100 br-10" src="{{ stage.imageStage.url }}" alt="Slide {{ stage.slugStage }}" height="260">
+                                        </div>
+                                        <div class="col-md-7 text-center">
+                                            <h3 class="mb-4">{{ stage.titleStage }}</h3>
+                                            <p>{{ stage.discription }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="row carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-5 px-5">
+                                            <img class="d-block w-100 br-10" src="{{ stage.imageStage.url }}" alt="Slide {{ stage.slugStage }}" height="260">
+                                        </div>
+                                        <div class="col-md-7 text-center">
+                                            <h3 class="mb-4">{{ stage.titleStage }}</h3>
+                                            <p>{{ stage.discription }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}  
+                    </div>
+                    <ol class="carousel-indicators my-4" style="position: static;">
+                        {% for stage in stages %}
+                            {% if stage.slugStage == 1 %}
+                                <li data-target="#carouselExampleIndicators" data-slide-to="{{ stage.slugStage }}" class="point active mx-1">
+                                    <img src="{% static 'image/pointActive.png'%}" alt="pointActive" class="w-100">
+                                </li>
+                            {% else %}
+                                <li data-target="#carouselExampleIndicators" data-slide-to="{{ stage.slugStage }}" class="point mx-1">
+                                    <img src="{% static 'image/point.png'%}" alt="point" class="w-100">
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+            <div class="col-md-2 align-self-center but-right text-left">
+                <a class="ml-3" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <img src="{% static 'image/arrow-right.png' %}" alt="arrow-right">
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block four %}
+
+    <div class="razdel bg-light">
+        <div class="container">
+            <h2 class="text-center mb-6">О нас</h2>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="mt-5"><img src="{% static 'image/time.png' %}" alt="time"></div>
+                        <h4 class="mb-5 mt-5 mx-4">Список рецептов пополняется каждый день</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="mt-5"><img src="{% static 'image/talk.png' %}" alt="talk"></div>
+                        <h4 class="mb-5 mt-5 mx-4">Множество отзывов о каждом рецепте</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="mt-5"><img src="{% static 'image/help.png' %}" alt="help"></div>
+                        <h4 class="mb-5 mt-5 mx-4">Пошаговые инструкции для каждого рецепта</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "recept/index.html" %}
+{% load static %}
+
+
+{% block one %}
+
+    <div class="razdel-2">
+        <div class="container">
+            <div class="py-4 text-center">
+                <h2>Профиль {{ user|capfirst }}</h2>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+
+{% block two %}
+
+    <div class="razdel bg-light">
+        <div class="container">
+            <h2 class="text-center mb-6">Ваши комментарии к рецептам</h2>
+            {% for comment in comments %}
+                <div class="col-md-12 stage my-5">
+                    <div class="row">
+                        <div class="col-md-10 px-4 py-2">
+                            <h4>{{ comment.text|capfirst }}</h4>
+                            
+                        </div>
+                        <div class="col-md-2 px-4 text-right align-self-center">
+                            <a href="{% url 'recipe' comment.id %}">
+                                <img src="{% static 'image/go.png'%}" alt="image">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

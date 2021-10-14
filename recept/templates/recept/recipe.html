@@ -1,5 +1,6 @@
 {% extends "recept/index.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 
 {% block one %}
@@ -129,12 +130,19 @@
 
             <h3 class="text-center mt-6 mb-4">Ваш отзыв к рецепту</h2>
             {% if request.user.is_authenticated %}
-                <!-- сюда форму вставить нада -->
-                <p>будет форма</p>
+                <form  action="{% url 'recipe' recipe.id %}" method="post">
+                    {% csrf_token %}
+
+                    {{ form|crispy }}
+
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-success">Отправить</button>
+                    </div>  
+                </form>
             {% else %}
                 <div class="text-center">
                     <h4>Для того чтобы оставить отзыв, вы должны авторизоваться на сайте :)</h4>
-                    <a href="#" class="btn btn-primary my-3">Авторизоваться</a>      
+                    <a href="{% url 'sign_in' %}" class="btn btn-primary my-3">Авторизоваться</a>      
                 </div>
             {% endif %}
         </div>

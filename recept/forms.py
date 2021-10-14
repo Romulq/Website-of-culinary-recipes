@@ -1,6 +1,21 @@
 from django import forms
 from django.contrib.auth.models import User
 
+from .models import Comment
+
+
+class CommentForm(forms.ModelForm):
+
+    text = forms.CharField(required=True, label=False, widget=forms.Textarea(
+                                                        attrs={'class': 'col', 'placeholder': 'Оставьте ваш отзыв.....'}))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = Comment
+        fields = ['text']
+
 
 class LoginForm(forms.ModelForm):
 
@@ -29,17 +44,13 @@ class LoginForm(forms.ModelForm):
 
 class RegistrationForm(forms.ModelForm):
 
-    username = forms.CharField(required=True)
-    email = forms.EmailField(required=True)
-    password = forms.CharField(widget=forms.PasswordInput)
-    check_password = forms.CharField(widget=forms.PasswordInput)
+    email = forms.EmailField(required=True, label=False, widget=forms.TextInput(attrs={'class': 'mb-4', 'placeholder': 'Почта'}))
+    username = forms.CharField(required=True, label=False, widget=forms.TextInput(attrs={'class': 'mb-4', 'placeholder': 'Логин'}))
+    password = forms.CharField(label=False, widget=forms.PasswordInput(attrs={'class': 'mb-4', 'placeholder': 'Пароль'}))
+    check_password = forms.CharField(label=False, widget=forms.PasswordInput(attrs={'class': 'mb-4', 'placeholder': 'Повторите пароль'}))
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].label = 'Имя пользователя'
-        self.fields['email'].label = 'Почта'
-        self.fields['password'].label = 'Пароль'
-        self.fields['check_password'].label = 'Повторите пароль'
 
     def clean_email(self):
         email = self.cleaned_data['email']

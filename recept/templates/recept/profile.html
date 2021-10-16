@@ -4,9 +4,13 @@
 
 {% block one %}
 
-    <div class="razdel-2">
+    <!-- <div class="razdel" style="background-color: #ffcb51;"> -->
+    <div class="razdel"  style="background: 
+                                    linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.35)),  
+                                    url(' {% static 'image/pastaProfile.jpg' %}') no-repeat center center;
+                                background-size: cover;">
         <div class="container">
-            <div class="py-4 text-center">
+            <div class="py-4 text-center text-light">
                 <h2>Профиль {{ user|capfirst }}</h2>
             </div>
         </div>
@@ -17,20 +21,31 @@
 
 {% block two %}
 
-    <div class="razdel bg-light">
+    <div class="razdel-2">
         <div class="container">
             <h2 class="text-center mb-6">Ваши комментарии к рецептам</h2>
             {% for comment in comments %}
-                <div class="col-md-12 stage my-5">
+                <div class="col-md-12 stage my-5 p-3">
                     <div class="row">
-                        <div class="col-md-10 px-4 py-2">
+                        <div class="col-md-8 px-4 py-2 align-self-center">
                             <h4>{{ comment.text|capfirst }}</h4>
-                            
                         </div>
-                        <div class="col-md-2 px-4 text-right align-self-center">
-                            <a href="{% url 'recipe' comment.id %}">
-                                <img src="{% static 'image/go.png'%}" alt="image">
-                            </a>
+                        <div class="col-md-4 px-4 align-self-center">
+                            {% for recipe in recipes %}
+                                {% if comment.recipe.id == recipe.id %}
+                                        <div class="card">
+                                            <img class="card-img-top" src="{{ recipe.imageRecipe.url }}" alt="{{ recipe.nameRecipe }}" height="190">
+                                            <div class="card-body text-center">
+                                                <div class="card-title">
+                                                    <h4>{{ recipe.nameRecipe }}</h4>
+                                                </div>
+                                                <a href="{% url 'recipe' recipe.id %}">
+                                                    <img src="{% static 'image/go.png'%}" alt="image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

@@ -121,9 +121,10 @@ class ProfileView(View):
 
         recipeOfDay = Recipe.objects.first()
         comments = Comment.objects.filter(user=request.user)
+        recipes = Recipe.objects.all()
 
         context = {
-            "recipeOfDay": recipeOfDay, "comments": comments
+            "recipeOfDay": recipeOfDay, "comments": comments, 'recipes': recipes
         }
 
         return render(request, 'recept/profile.html', context)

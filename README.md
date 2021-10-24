@@ -1,1 +1,1 @@
-# website-of-culinary-recipes
+# Сайт кулинарных рецептов на Django

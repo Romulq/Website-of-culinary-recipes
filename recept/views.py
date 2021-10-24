@@ -10,6 +10,10 @@ from .forms import LoginForm, RegistrationForm, CommentForm
 from .models import Category, Kitchen, Stage, Recipe, Comment, Ingredient
 
 
+def test(request):
+    return render(request, 'index.html', {})
+
+
 class HomeView(View):
 
     def get(self, request):

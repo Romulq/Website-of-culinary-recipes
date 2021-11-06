@@ -1,8 +1,10 @@
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path
+from django.urls import path, include
 
 from .views import HomeView, KitchenView, RecipeView, ProfileView, LoginView, RegistrationView, LogoutView, test
+
+from .api import urls
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
@@ -15,7 +17,8 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name="sign_out"),
     path('registration/', RegistrationView.as_view(), name="sign_up"),
 
-    path('react/', test)
+    path('react/', test),
+    path('api/', include(urls.urlpatterns))
 ]
 
 if settings.DEBUG:

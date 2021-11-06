@@ -28,7 +28,7 @@ class Kitchen(models.Model):
 
 
 class Stage(models.Model):  # INLINE
-    recipe = models.ForeignKey("Recipe", on_delete=models.CASCADE)
+    recipe = models.ForeignKey("Recipe", related_name="stages", on_delete=models.CASCADE)
     titleStage = models.CharField(max_length=255, verbose_name='Заголовок')
     discription = models.TextField(blank=True, verbose_name='Описание')
     imageStage = models.ImageField(upload_to='images/stage/', verbose_name='Изображение')
@@ -61,7 +61,7 @@ class Recipe(models.Model):
 
 
 class Comment(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, verbose_name='Рецепт')
+    recipe = models.ForeignKey(Recipe, related_name="comments", on_delete=models.CASCADE, verbose_name='Рецепт')
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
     text = models.TextField(blank=False, verbose_name='Комментарий')
     time = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
@@ -75,7 +75,7 @@ class Comment(models.Model):
     
 
 class Ingredient(models.Model): # INLINE
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, related_name="ingredients", on_delete=models.CASCADE)
     nameIngredient = models.CharField(max_length=255, verbose_name='Название')
     count = models.CharField(max_length=255, verbose_name='Количество/текст')
 

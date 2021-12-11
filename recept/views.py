@@ -10,19 +10,31 @@ from .forms import LoginForm, RegistrationForm, CommentForm
 from .models import Category, Kitchen, Stage, Recipe, Comment, Ingredient
 
 
+class Test(View):
+
+    def get(self, request):
+
+        recipeOfDay = Recipe.objects.first()
+        stages = Stage.objects.filter(recipe=recipeOfDay.id)
+
+        context = {
+            "stages": stages, "recipeOfDay": recipeOfDay
+        }
+
+        return JsonResponse(request, context)
+
 class HomeView(View):
 
     def get(self, request):
 
-        categorys = Category.objects.all()
         kitchens = Kitchen.objects.all()[:6]
         recipeOfDay = Recipe.objects.first()
         stages = Stage.objects.filter(recipe=recipeOfDay.id)
         ingredients = Ingredient.objects.all()
 
         context = {
-            "categorys": categorys, "kitchens": kitchens, 
-            "ingredients": ingredients, "stages": stages, "recipeOfDay": recipeOfDay
+            "kitchens": kitchens, "ingredients": ingredients,
+            "stages": stages, "recipeOfDay": recipeOfDay
         }
 
         return render(request, 'recept/home.html', context)

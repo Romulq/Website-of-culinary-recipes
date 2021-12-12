@@ -1,17 +1,12 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.views import View
-from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout as auth_logout
 
 from .forms import LoginForm, RegistrationForm, CommentForm
 from .models import Category, Kitchen, Stage, Recipe, Comment, Ingredient
-
-
-def test(request):
-    return render(request, 'index.html', {})
 
 
 class HomeView(View):
@@ -102,9 +97,6 @@ class RecipeView(View):
         recipeOfDay = Recipe.objects.first()
 
         if form.is_valid():
-            
-            print('hello22')
-
             new_comment = form.save(commit=False)
             new_comment.recipe = Recipe.objects.get(id=slug)
             new_comment.user = request.user
@@ -112,6 +104,7 @@ class RecipeView(View):
             new_comment.save()
 
             return HttpResponseRedirect(f'/recipe/{slug}')
+            
         else:
             messages.add_message(request, messages.ERROR, 'Поле отзыва пустое...')
         

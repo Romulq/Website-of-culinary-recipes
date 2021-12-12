@@ -1,0 +1,114 @@
+{
+  "status": "error",
+  "assets": {
+    "img/logo.82b9c7a5.png": {
+      "name": "img/logo.82b9c7a5.png",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\img\\logo.82b9c7a5.png",
+      "publicPath": "http://127.0.0.1:8080/img/logo.82b9c7a5.png"
+    },
+    "js/app.js": {
+      "name": "js/app.js",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\js\\app.js",
+      "publicPath": "http://127.0.0.1:8080/js/app.js"
+    },
+    "index.html": {
+      "name": "index.html",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\index.html",
+      "publicPath": "http://127.0.0.1:8080/index.html"
+    },
+    "favicon.ico": {
+      "name": "favicon.ico",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\favicon.ico",
+      "publicPath": "http://127.0.0.1:8080/favicon.ico"
+    },
+    "app.ff30aef67460a87ad9f9.hot-update.js": {
+      "name": "app.ff30aef67460a87ad9f9.hot-update.js",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\app.ff30aef67460a87ad9f9.hot-update.js",
+      "publicPath": "http://127.0.0.1:8080/app.ff30aef67460a87ad9f9.hot-update.js"
+    },
+    "ff30aef67460a87ad9f9.hot-update.json": {
+      "name": "ff30aef67460a87ad9f9.hot-update.json",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\ff30aef67460a87ad9f9.hot-update.json",
+      "publicPath": "http://127.0.0.1:8080/ff30aef67460a87ad9f9.hot-update.json"
+    },
+    "d982497804d274255670.hot-update.json": {
+      "name": "d982497804d274255670.hot-update.json",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\d982497804d274255670.hot-update.json",
+      "publicPath": "http://127.0.0.1:8080/d982497804d274255670.hot-update.json"
+    },
+    "app.9a4938c74ad1191d982b.hot-update.js": {
+      "name": "app.9a4938c74ad1191d982b.hot-update.js",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\app.9a4938c74ad1191d982b.hot-update.js",
+      "publicPath": "http://127.0.0.1:8080/app.9a4938c74ad1191d982b.hot-update.js"
+    },
+    "9a4938c74ad1191d982b.hot-update.json": {
+      "name": "9a4938c74ad1191d982b.hot-update.json",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\9a4938c74ad1191d982b.hot-update.json",
+      "publicPath": "http://127.0.0.1:8080/9a4938c74ad1191d982b.hot-update.json"
+    },
+    "8c8b55aae0be44713c5c.hot-update.json": {
+      "name": "8c8b55aae0be44713c5c.hot-update.json",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\8c8b55aae0be44713c5c.hot-update.json",
+      "publicPath": "http://127.0.0.1:8080/8c8b55aae0be44713c5c.hot-update.json"
+    },
+    "f4b7fa8e3e143a59d73c.hot-update.json": {
+      "name": "f4b7fa8e3e143a59d73c.hot-update.json",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\f4b7fa8e3e143a59d73c.hot-update.json",
+      "publicPath": "http://127.0.0.1:8080/f4b7fa8e3e143a59d73c.hot-update.json"
+    },
+    "95c9b5207c461693bd4a.hot-update.json": {
+      "name": "95c9b5207c461693bd4a.hot-update.json",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\95c9b5207c461693bd4a.hot-update.json",
+      "publicPath": "http://127.0.0.1:8080/95c9b5207c461693bd4a.hot-update.json"
+    },
+    "18afd754826c2e0f8e5b.hot-update.json": {
+      "name": "18afd754826c2e0f8e5b.hot-update.json",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\18afd754826c2e0f8e5b.hot-update.json",
+      "publicPath": "http://127.0.0.1:8080/18afd754826c2e0f8e5b.hot-update.json"
+    },
+    "d83c5b25305ff1b6be4d.hot-update.json": {
+      "name": "d83c5b25305ff1b6be4d.hot-update.json",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\d83c5b25305ff1b6be4d.hot-update.json",
+      "publicPath": "http://127.0.0.1:8080/d83c5b25305ff1b6be4d.hot-update.json"
+    },
+    "fd65da5ba3ae7d0d5a1a.hot-update.json": {
+      "name": "fd65da5ba3ae7d0d5a1a.hot-update.json",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\fd65da5ba3ae7d0d5a1a.hot-update.json",
+      "publicPath": "http://127.0.0.1:8080/fd65da5ba3ae7d0d5a1a.hot-update.json"
+    },
+    "7a2cf6526ea48a08e811.hot-update.json": {
+      "name": "7a2cf6526ea48a08e811.hot-update.json",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\7a2cf6526ea48a08e811.hot-update.json",
+      "publicPath": "http://127.0.0.1:8080/7a2cf6526ea48a08e811.hot-update.json"
+    },
+    "app.9fe328d43aa9878b93c9.hot-update.js": {
+      "name": "app.9fe328d43aa9878b93c9.hot-update.js",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\app.9fe328d43aa9878b93c9.hot-update.js",
+      "publicPath": "http://127.0.0.1:8080/app.9fe328d43aa9878b93c9.hot-update.js"
+    },
+    "9fe328d43aa9878b93c9.hot-update.json": {
+      "name": "9fe328d43aa9878b93c9.hot-update.json",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\9fe328d43aa9878b93c9.hot-update.json",
+      "publicPath": "http://127.0.0.1:8080/9fe328d43aa9878b93c9.hot-update.json"
+    },
+    "app.78ee0a181e2335bac4ae.hot-update.js": {
+      "name": "app.78ee0a181e2335bac4ae.hot-update.js",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\app.78ee0a181e2335bac4ae.hot-update.js",
+      "publicPath": "http://127.0.0.1:8080/app.78ee0a181e2335bac4ae.hot-update.js"
+    },
+    "78ee0a181e2335bac4ae.hot-update.json": {
+      "name": "78ee0a181e2335bac4ae.hot-update.json",
+      "path": "G:\\Projects\\site-recept\\mysite\\frontend\\dist\\78ee0a181e2335bac4ae.hot-update.json",
+      "publicPath": "http://127.0.0.1:8080/78ee0a181e2335bac4ae.hot-update.json"
+    }
+  },
+  "chunks": {
+    "app": [
+      "js/app.js",
+      "app.78ee0a181e2335bac4ae.hot-update.js"
+    ]
+  },
+  "publicPath": "http://127.0.0.1:8080/",
+  "error": "ModuleError",
+  "message": "Module Error (from ./node_modules/eslint-loader/index.js):\n\nG:\\Projects\\site-recept\\mysite\\frontend\\src\\App.vue\n  12:5  error  The \"Carousel\" component has been registered but not used  vue/no-unused-components\n\n✖ 1 problem (1 error, 0 warnings)\n"
+}

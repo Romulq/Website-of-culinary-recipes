@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'recept.apps.ReceptConfig',
     'rest_framework',
     'crispy_forms',
-    'corsheaders',
+    'corsheaders', # апи
+    'webpack_loader'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -62,7 +63,9 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            str(BASE_DIR.joinpath('templates'))
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,3 +141,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+WEBPACK_LOADER = {
+  'DEFAULT': {
+    'CACHE': not DEBUG,
+    'BUNDLE_DIR_NAME': 'webpack_bundles/',
+    'STATS_FILE': str(BASE_DIR.joinpath('frontend', 'webpack-stats.json')),
+    'POLL_INTERVAL': 0.1,
+    'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
+  }
+}

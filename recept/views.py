@@ -141,6 +141,7 @@ class LoginView(View):
 
     def post(self, request):
         form = LoginForm(request.POST or None)
+        recipeOfDay = Recipe.objects.first()
 
         if form.is_valid():
             username = form.cleaned_data['username']
@@ -149,7 +150,7 @@ class LoginView(View):
             if user:
                 login(request, user)
                 return HttpResponseRedirect('/')
-        context = {'form': form}
+        context = {'form': form, "recipeOfDay": recipeOfDay}
         return render(request, 'recept/signIn.html', context)
 
 
@@ -186,10 +187,9 @@ class RegistrationView(View):
             new_user.set_password(form.cleaned_data['password'])
             new_user.save()
 
-            # User.objects.create_user(new_user)
-
             user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
             login(request, user)
+            
             return HttpResponseRedirect('/')
         context = {'form': form, "recipeOfDay": recipeOfDay}
         return render(request, 'recept/signUp.html', context)

@@ -27,6 +27,12 @@ class KitchenViewSet(viewsets.ModelViewSet):
     serializer_class = KitchenSerializer
 
 
+class KitchenHomeViewSet(viewsets.ModelViewSet):
+
+    queryset = Kitchen.objects.all()[:6]
+    serializer_class = KitchenSerializer
+
+
 class StageViewSet(viewsets.ModelViewSet):
 
     queryset = Stage.objects.all()

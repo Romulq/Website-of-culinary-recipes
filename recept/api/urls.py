@@ -3,6 +3,7 @@ from rest_framework import routers
 
 from .views import (CategoryViewSet,
                     KitchenViewSet,
+                    KitchenHomeViewSet,
                     StageViewSet,
                     RecipeViewSet,
                     CommentViewSet,
@@ -15,6 +16,8 @@ router.register('stage', StageViewSet, basename='stage')
 router.register('recipe', RecipeViewSet, basename='recipe')
 router.register('comment', CommentViewSet, basename='comment')
 router.register('ingredient', IngredientViewSet, basename='ingredient')
+
+router.register('kitchen-home', KitchenHomeViewSet, basename='kitchen-home')
 
 urlpatterns = []
 urlpatterns += router.urls
